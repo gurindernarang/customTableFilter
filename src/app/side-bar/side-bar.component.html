@@ -4,7 +4,8 @@
 </div>
 <div class="mt-2" *ngFor="let filter of filters; index as i">
     <label>#{{i+1}} </label>
-    <select class="form-select" aria-label="Select Column" [(ngModel)]="filters[i].column_name">
+    <select class="form-select" aria-label="Select Column" [(ngModel)]="filters[i].column_name"
+        (change)="onChange($event)">
         <option selected disabled value="">Choose Column</option>
         <option *ngFor="let name of columnsForFilter" value="{{name}}">{{name}}</option>
     </select>

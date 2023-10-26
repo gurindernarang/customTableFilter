@@ -17,10 +17,8 @@ export class DashboardComponent implements OnInit {
   }
 
   filters(filtersArr: any) {
-    console.log('data', filtersArr);
     filtersArr.forEach((_filter: Filter) => {
       this.records = this.records.filter((record) => {
-
         return this.checkRecord(record, _filter);
       });
     });
@@ -36,21 +34,20 @@ export class DashboardComponent implements OnInit {
         valid = record[_filter.column_name] != _filter.value;
         break;
       case 'contains':
-        // code block
+        valid = record[_filter.column_name].contains(_filter.value);
         break;
       case 'not contain':
-        // code block
+        valid = !record[_filter.column_name].contains(_filter.value);
         break;
       case 'less than or equal to':
-        // code block
+        valid = record[_filter.column_name] <= _filter.value;
         break;
       case 'greater than or equal to':
-        // code block
+        valid = record[_filter.column_name] >= _filter.value;
         break;
       default:
-      // code block
+        break;
     }
-    console.log("valid", valid);
     return valid;
   }
 }
