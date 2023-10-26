@@ -35,16 +35,13 @@ export class SideBarComponent implements OnInit {
 
   @Output() updateFilters = new EventEmitter<string>();
 
-
   ngOnInit(): void {}
 
   addFilter() {
     this.filters.push(new Filter());
-    this.updateFilters.emit(this.filters);
   }
 
   applyFilter() {
-    console.log('this.filters', this.filters);
-
+    this.updateFilters.emit(this.filters);
   }
 }

@@ -1,5 +1,6 @@
 <div class="container">
     <div class="row">
-    <app-side-bar class="col-2"></app-side-bar>
-    <app-table-view class="col-10"></app-table-view>
+        <app-side-bar class="col-2" (updateFilters)="filters($event)"></app-side-bar>
+        <app-table-view class="col-10" [data]="records"></app-table-view>
+    </div>
 </div>

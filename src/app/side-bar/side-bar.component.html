@@ -12,7 +12,7 @@
         <option elected disabled value="">Choose Operator</option>
         <option *ngFor="let operator of operators" value="{{operator}}">{{operator}}</option>
     </select>
-    <input type="text" class="form-control" placeholder="Enter Value" aria-label="Value">
+    <input type="text" class="form-control" placeholder="Enter Value" aria-label="Value" [(ngModel)]="filters[i].value">
 </div>
 <div class="text-center mt-4" *ngIf="!!filters.length">
     <button type="button" class="btn btn-primary" (click)="applyFilter()">Apply</button>
