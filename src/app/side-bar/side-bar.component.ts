@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Filter } from '../models/filter';
 
 @Component({
@@ -33,13 +33,18 @@ export class SideBarComponent implements OnInit {
     'greater than or equal to',
   ];
 
+  @Output() updateFilters = new EventEmitter<string>();
+
+
   ngOnInit(): void {}
 
   addFilter() {
     this.filters.push(new Filter());
+    this.updateFilters.emit(this.filters);
   }
 
   applyFilter() {
     console.log('this.filters', this.filters);
+
   }
 }
